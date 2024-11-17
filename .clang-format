@@ -1,0 +1,40 @@
+BasedOnStyle: Microsoft
+
+Language:                                           Cpp
+ColumnLimit:                                        120
+Standard:                                           c++20
+UseTab:                                             Always
+SortIncludes:										true
+AccessModifierOffset:                               -4
+AlignAfterOpenBracket:                              AlwaysBreak
+AllowShortBlocksOnASingleLine:                      Always
+AllowShortLambdasOnASingleLine:                     Inline
+AllowShortCaseLabelsOnASingleLine:                  true
+BreakConstructorInitializers:                       BeforeColon
+BreakInheritanceList:                               BeforeColon
+ConstructorInitializerAllOnOneLineOrOnePerLine:     true
+IndentCaseLabels:                                   true
+BraceWrapping:
+    AfterCaseLabel:                                 true
+    AfterClass:                                     true
+    AfterControlStatement:                          Always
+    AfterEnum:                                      true
+    AfterFunction:                                  true
+    AfterNamespace:                                 true
+    AfterObjCDeclaration:                           true
+    AfterStruct:                                    true
+    AfterUnion:                                     true
+    AfterExternBlock:                               true
+    BeforeCatch:                                    true
+    BeforeElse:                                     true
+    BeforeLambdaBody:                               false
+    BeforeWhile:                                    false
+    IndentBraces:                                   false
+    SplitEmptyFunction:                             false
+    SplitEmptyRecord:                               false
+    SplitEmptyNamespace:                            false
+BreakBeforeBinaryOperators:                         NonAssignment
+IndentRequires:                                     true
+SpaceAfterTemplateKeyword:                          false
+AlwaysBreakTemplateDeclarations:                    Yes
+SpaceBeforeCpp11BracedList:                         true
