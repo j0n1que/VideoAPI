@@ -59,13 +59,13 @@ func (h *Handler) getVideo(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, "Error analyzing video", http.StatusInternalServerError)
 	}
+	defer os.RemoveAll(filePath)
 	videoPath := filepath.Join(".", filePath+"/video_with_audio.mp4")
 	videoFile, err := os.Open(videoPath)
 	if err != nil {
 		http.Error(w, "Error reading video", http.StatusInternalServerError)
 		return
 	}
-	defer os.RemoveAll(filePath)
 	defer videoFile.Close()
 	videoData, err := io.ReadAll(videoFile)
 	if err != nil {
