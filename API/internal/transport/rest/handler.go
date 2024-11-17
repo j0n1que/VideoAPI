@@ -2,7 +2,6 @@ package rest
 
 import (
 	"bytes"
-	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -52,14 +51,15 @@ func (h *Handler) getVideo(w http.ResponseWriter, r *http.Request) {
 	var buffer bytes.Buffer
 	_, err = io.Copy(&buffer, file)
 	if err != nil {
-		fmt.Println(err)
+		http.Error(w, "Error copying video", http.StatusInternalServerError)
 		return
 	}
 	err = runPython(buffer)
+	defer os.RemoveAll(filePath)
 	if err != nil {
 		http.Error(w, "Error analyzing video", http.StatusInternalServerError)
+		return
 	}
-	defer os.RemoveAll(filePath)
 	videoPath := filepath.Join(".", filePath+"/video_with_audio.mp4")
 	videoFile, err := os.Open(videoPath)
 	if err != nil {

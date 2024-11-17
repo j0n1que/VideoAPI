@@ -95,7 +95,7 @@ def add_audio_to_video(video_file,  output_file, duration=None):
     video = video.set_audio(silence)
     video.write_videofile(output_file, codec="libx264", audio_codec="aac")
 
-infer = InferContext(CDLL('./libinfer.so'))
+infer = InferContext(CDLL('../../../libinfer.so'))
 filePath = '../../../python/build/'
 video, cap = configure_video(filePath)
 
